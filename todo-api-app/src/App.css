@@ -1,9 +1,37 @@
-.todo-app { max-width: 400px; margin: 50px auto; font-family: sans-serif; text-align: center; }
-.input-area { display: flex; gap: 10px; margin-bottom: 20px; }
-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
-button { padding: 10px; background: #28a745; color: white; border: none; cursor: pointer; border-radius: 4px; }
-.task-list { list-style: none; padding: 0; }
-li { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #eee; cursor: pointer; }
-.completed span { text-decoration: line-through; color: #888; }
-li button { background: #dc3545; padding: 5px 10px; font-size: 12px; }
-.loader { text-align: center; margin-top: 50px; font-weight: bold; }
+:root {
+  --primary: #6366f1;
+  --danger: #ef4444;
+  --bg: #f8fafc;
+}
+
+body { background-color: var(--bg); margin: 0; font-family: 'Inter', sans-serif; }
+
+.container { max-width: 450px; margin: 60px auto; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+header { text-align: center; margin-bottom: 30px; }
+header h1 { margin: 0; color: #1e293b; }
+header p { color: #64748b; font-size: 0.9rem; }
+
+.input-box { display: flex; gap: 8px; margin-bottom: 25px; }
+input { flex: 1; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; outline: none; transition: border 0.2s; }
+input:focus { border-color: var(--primary); }
+
+button { padding: 10px 20px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.list { list-style: none; padding: 0; }
+li { display: flex; justify-content: space-between; align-items: center; padding: 12px; border-bottom: 1px solid #f1f5f9; animation: fadeIn 0.3s ease; }
+li span { color: #334155; }
+
+.del-btn { background: #fee2e2; color: var(--danger); padding: 6px 12px; font-size: 0.8rem; }
+.del-btn:hover { background: var(--danger); color: white; }
+
+/* Loader Styles */
+.loader-container { text-align: center; padding: 40px 0; color: #64748b; }
+.spinner { 
+  width: 30px; height: 30px; border: 3px solid #f3f3f3; border-top: 3px solid var(--primary); 
+  border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 10px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
